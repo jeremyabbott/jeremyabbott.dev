@@ -22,9 +22,9 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet }}
     - name: Install Fornax
-      run: dotnet tool install -g Fornax 
+      run: dotnet tool restore
     - name: Build
-      run: fornax build
+      run: dotnet Fornax build
       env:
         # Work around https://github.com/actions/setup-dotnet/issues/29
         DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
