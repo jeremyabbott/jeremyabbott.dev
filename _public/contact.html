@@ -42,13 +42,13 @@
           </span>
         </div>
         <div id="navbarMenu" class="navbar-menu">
-          <a class="navbar-item is-active" href="/">
+          <a class="navbar-item" href="/">
             Home
           </a>
           <a class="navbar-item" href="/about.html">
             About
           </a>
-          <a class="navbar-item" href="/contact.html">
+          <a class="navbar-item is-active" href="/contact.html">
             Contact
           </a>
         </div>
@@ -68,36 +68,8 @@
         <div class="column is-8 is-offset-2">
           <div class="card article">
             <div class="card-content">
-              <div class="media-content has-text-centered">
-                <p class="title article-title">
-                  <a href="/posts/setting-up-prism-for-fornax.html">
-                    Setting up Prism for Fornax
-                  </a>
-                </p>
-                <p class="subtitle is-6 article-subtitle">
-                  <a href="#">
-                    Jeremy Abbott
-                  </a>
-                  on 2020-07-02
-                </p>
-              </div>
               <div class="content article-body">
-                <h1>Setting up Prism for Fornax</h1>
-<p>I'm using Fornax to generate my new site. Because a lot of the content here is around software and coding, syntax highlighting is crucial. I decided to use <a href="https://prismjs.com/index.html">Prism</a> to handle syntax highlighting.</p>
-<h2>The Problem</h2>
-<p>When you create a new site with Fornax via <code>fornax new</code>, or <code>dotnet fornax new</code> in my case, you get a new static site that uses Bulma. This is fine until you add in Prism.</p>
-<p><img src="/images/prism_bulma_name_conflict.png" alt="F# code snippet with numbers formatted incorrectly" /></p>
-<p>As it turns out, both Bulma's CSS and Prism's CSS have a class called <code>number</code> and the Bulma class is applying some behavior that we really don't want.</p>
-<h2>The Solution</h2>
-<p>Googling &quot;Bulma and Prism&quot; I found that <a href="https://github.com/jgthms/bulma/issues/1708">someone had opened a Bulma issue for this exact thing</a>. After reading through the comments (Scary. I know.) it turns out that Prism has a plugin for addressing problems like this. The <a href="https://prismjs.com/plugins/custom-class/">Custom Class plugin</a> allows you to rename any Prism class. After adding the plugin to my <code>prism.js</code> file, all I needed to do was map the class name <code>number</code> to something else:</p>
-<pre><code class="language-fsharp">script [Src &quot;/js/prism.js&quot;; Type &quot;text/javascript&quot;] [] // this was already in layout.fsx
-// Uses the custom class plugin to change the class &quot;number&quot; to &quot;pr-number&quot;
-script [Type &quot;text/javascript&quot;] [string &quot;Prism.plugins.customClass.map({number: 'pr-number'})&quot;]
-</code></pre>
-<p>And now as you can see (I hope 😉), numbers look like they're supposed to:</p>
-<pre><code class="language-fsharp">let numbers = [1;2;3;4;5]
-</code></pre>
-
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisi diam, vehicula quis blandit id, suscipit sed libero. Proin at diam dolor. In hac habitasse platea dictumst. Donec quis dui vitae quam eleifend dignissim non sed libero. In hac habitasse platea dictumst. In ullamcorper mollis risus, a vulputate quam accumsan at. Donec sed felis sodales, blandit orci id, vulputate orci.
               </div>
             </div>
           </div>
