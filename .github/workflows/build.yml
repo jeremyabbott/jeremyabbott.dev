@@ -33,5 +33,6 @@ jobs:
       run: |
         dotnet dotnet-octo push --package "./publish/jeremyabbott.dev.$PACKAGE_VERSION.zip" --server "${{ secrets.OCTOPUS_SERVER }}" --apiKey "${{ secrets.OCTOPUS_API_KEY }}"
       # Work around https://github.com/actions/setup-dotnet/issues/29
-      DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
-      CI: true
+      env: 
+        DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
+        CI: true
