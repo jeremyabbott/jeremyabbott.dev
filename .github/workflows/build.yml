@@ -11,11 +11,6 @@ jobs:
         dotnet: [3.1.301]
     runs-on: ${{ matrix.os }}
     
-    env:
-        # Work around https://github.com/actions/setup-dotnet/issues/29
-        DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
-        CI: true
-  
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
@@ -30,6 +25,13 @@ jobs:
         dotnet tool restore
         dotnet fornax build
         dotnet dotnet-octo pack --id jeremyabbott.dev --version $PACKAGE_VERSION --format Zip --basePath ./_public/ --outFolder ./publish
+      env:
+        # Work around https://github.com/actions/setup-dotnet/issues/29
+        DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
+        CI: true
     - name: Publish
       run: |
         dotnet dotnet-octo push --package "./publish/jeremyabbott.dev.$PACKAGE_VERSION.zip" --server "${{ secrets.OCTOPUS_SERVER }}" --apiKey "${{ secrets.OCTOPUS_API_KEY }}"
+      # Work around https://github.com/actions/setup-dotnet/issues/29
+      DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
+      CI: true
