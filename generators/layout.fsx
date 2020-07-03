@@ -63,9 +63,6 @@ let layout (ctx : SiteContents) active bodyCnt =
           nav [Class "navbar"] [
             div [Class "container"] [
               div [Class "navbar-brand"] [
-                a [Class "navbar-item"; Href "/"] [
-                  img [Src "/images/bulma.png"; Alt "Logo"]
-                ]
                 span [Class "navbar-burger burger"; Custom ("data-target", "navbarMenu")] [
                   span [] []
                   span [] []
