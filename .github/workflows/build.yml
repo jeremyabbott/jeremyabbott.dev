@@ -3,10 +3,6 @@ name: Build master
 on: [push, pull_request]
 
 jobs:
-  env:
-    # Work around https://github.com/actions/setup-dotnet/issues/29
-    DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
-    CI: true
   build:
 
     strategy:
@@ -14,7 +10,12 @@ jobs:
         os: [ubuntu-latest]
         dotnet: [3.1.301]
     runs-on: ${{ matrix.os }}
-
+    
+    env:
+        # Work around https://github.com/actions/setup-dotnet/issues/29
+        DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
+        CI: true
+  
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
