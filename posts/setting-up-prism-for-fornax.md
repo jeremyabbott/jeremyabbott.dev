@@ -30,5 +30,6 @@ script [Type "text/javascript"] [string "Prism.plugins.customClass.map({number: 
 And now as you can see (I hope 😉), numbers look like they're supposed to:
 
 ```fsharp
-let numbers = [1;2;3;4;5]
+type Pokemon = { Number: int; Name: string }
+let pikachu = { Number = 25; Name = "Pikachu" }
 ```

@@ -1,2 +1,2 @@
 export CI=false
-dotnet watch fornax
+dotnet fornax watch
