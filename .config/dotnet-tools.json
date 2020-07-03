@@ -7,6 +7,12 @@
       "commands": [
         "fornax"
       ]
+    },
+    "octopus.dotnet.cli": {
+      "version": "7.4.1",
+      "commands": [
+        "dotnet-octo"
+      ]
     }
   }
 }

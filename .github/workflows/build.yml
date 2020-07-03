@@ -21,6 +21,7 @@ jobs:
       run: |
         dotnet tool restore
         dotnet fornax build
+        dotnet dotnet-octo pack --id jeremyabbott.dev --format Zip --basePath ./_public/ --outFolder ./publish
       env:
         # Work around https://github.com/actions/setup-dotnet/issues/29
         DOTNET_ROOT: ${{ runner.tool_cache }}/dncs/${{ matrix.dotnet }}/x64
