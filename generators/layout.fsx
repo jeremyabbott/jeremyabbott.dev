@@ -31,18 +31,18 @@ let injectWebsocketCode (webpage:string) =
     let index = webpage.IndexOf head
     webpage.Insert ( (index + head.Length + 1),websocketScript)
 
-let layout (ctx : SiteContents) active bodyCnt =
+let layout (ctx : SiteContents) currentPageTitle bodyCnt =
     let pages = ctx.TryGetValues<Pageloader.Page> () |> Option.defaultValue Seq.empty
     let siteInfo = ctx.TryGetValue<Globalloader.SiteInfo> ()
     let ttl =
-      siteInfo
-      |> Option.map (fun si -> si.title)
-      |> Option.defaultValue ""
-
+        siteInfo
+        |> Option.map (fun si -> sprintf "%s | %s" currentPageTitle si.title)
+        |> Option.defaultValue currentPageTitle
+      
     let menuEntries =
       pages
       |> Seq.map (fun p ->
-        let cls = if p.title = active then "navbar-item is-active" else "navbar-item"
+        let cls = if p.title = currentPageTitle then "navbar-item is-active" else "navbar-item"
         a [Class cls; Href p.link] [!! p.title ])
       |> Seq.toList
 

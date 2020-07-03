@@ -1,15 +1,11 @@
 ---
 layout: post
-title: Setting up Prism for Fornax
+title: Setting up Prism with Bulma
 author: Jeremy Abbott
 published: 2020-07-02
 ---
 
-# Setting up Prism for Fornax
-
-I'm using Fornax to generate my new site. Because a lot of the content here is around software and coding, syntax highlighting is crucial. I decided to use [Prism](https://prismjs.com/index.html) to handle syntax highlighting. 
-
-## The Problem
+# Setting up Prism with Bulma
 
 When you create a new site with Fornax via `fornax new`, or `dotnet fornax new` in my case, you get a new static site that uses Bulma. This is fine until you add in Prism.
 
