@@ -3,9 +3,6 @@
 
 open Markdig
 
-type PostConfig = {
-    disableLiveRefresh: bool
-}
 type Post = {
     file: string
     link : string
@@ -112,6 +109,4 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
     |> Array.filter (fun n -> n.EndsWith ".md")
     |> Array.map loadFile
     |> Array.iter (fun p -> siteContent.Add p)
-
-    siteContent.Add({disableLiveRefresh = false})
     siteContent
