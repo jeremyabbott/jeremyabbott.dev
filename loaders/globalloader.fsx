@@ -10,6 +10,6 @@ let loader (projectRoot: string) (siteContent: SiteContents) =
     let isCI = 
         let envCI, success = System.Environment.GetEnvironmentVariable "CI" |> System.Boolean.TryParse
         if success then envCI else false
-    siteContent.Add({title = "Jeremy Abbott"; description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"; ci=isCI})
+    siteContent.Add({title = "Jeremy Abbott"; description = "Jeremy Abbott"; ci=isCI})
 
     siteContent
